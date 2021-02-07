@@ -478,9 +478,9 @@ class SimpleEmailService
 	* @param SimpleEmailServiceMessage $sesMessage An instance of the message class
 	* @param boolean $use_raw_request If this is true or there are attachments to the email `SendRawEmail` call will be used
 	* @param boolean $trigger_error Optionally overwrite the class setting for triggering an error (with type check to true/false)
-	* @return array An array containing the unique identifier for this message and a separate request id.
+	* @return array|false An array containing the unique identifier for this message and a separate request id.
 	*         Returns false if the provided message is missing any required fields.
-	*  @link(AWS SES Response formats, http://docs.aws.amazon.com/ses/latest/DeveloperGuide/query-interface-responses.html)
+	* @link(AWS SES Response formats, http://docs.aws.amazon.com/ses/latest/DeveloperGuide/query-interface-responses.html)
 	*/
 	public function sendEmail($sesMessage, $use_raw_request = false , $trigger_error = null) {
 		if(!$sesMessage->validate()) {
